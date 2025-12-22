@@ -1,14 +1,18 @@
-import User from './components/User';
-
 export default function App() {
-  const userObj = {
-    name : '수정',
-    age : 27,
+  const handleCapture = () => {
+    console.log('Parent');
+  };
+  const handleBubble = () => {
+    console.log('Child');
   };
 
-  const clickHandler = () => {
-    console.log("clicked");
-  };
-  
-  return <User userObj={userObj} clickHandler={clickHandler} />;
+ return (
+    <div
+      onClickCapture={handleCapture}
+      style={{ padding: '50px', backgroudColor: '#f0f0f0' }}
+      >Parent
+      <button onClick={handleBubble} style={{ marginTop: '20px' }}
+      >Click Me</button>
+    </div>  
+ );
 }
